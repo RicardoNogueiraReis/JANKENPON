@@ -70,3 +70,9 @@ What I've learned
 
 - Lists in python
 - The "Random" Python module
+
+
+TO DO LIST
+----------
+
+- Make use of python functions 
