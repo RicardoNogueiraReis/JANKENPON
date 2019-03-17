@@ -36,7 +36,7 @@ Debug commands
 ----------
 Commands used to test this script
 
-Activate/deactivate debug mode:
+1.Activate/deactivate debug mode:
 
 	>please debug, alan
 It will output a confirmation message when debug mode is active:
@@ -45,16 +45,20 @@ It will output a confirmation message when debug mode is active:
 	>please debug, alan
 	Alright
 
-After the user has made their choice, the script now asks the user to input the computer's choice:
+2.After the user has made their choice, the script now asks the user to input the computer's choice:
 
 	Rock, paper or scissors?
 	>rock
+Output:
+
 	PC -- rock, paper or scissors?
 	>
-Besides this, during debug mode, the user can input how many cycles they want to, to show a counter on how many times the computer chose a particular choice:
+3.Besides this, during debug mode, the user can input how many cycles they want to, to show a counter on how many times the computer chose a particular choice:
 
 	Rock, paper or scissors?
 	>Cycles
+Output:
+
 	How many cycles?
 	>90
 	rock: 33 37%
