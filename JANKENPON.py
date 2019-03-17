@@ -10,7 +10,7 @@ JANKENPON (Pedra, papel, tesoura)
 Ricardo Reis 2019
 03/03/2019 - 16/03/2019 [DD/MM/YYYY]
 Versão Python 3.7.0
-Versão 1.0 JANKENPON 
+Versão 1.0 JANKENPON
 '''
 
 from random import randint
