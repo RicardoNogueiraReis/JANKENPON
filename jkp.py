@@ -1,105 +1,110 @@
 '''
-,---.     |    o                    
-|---',---.|__/ .,-.-.,---.,---..   .
-|    |   ||  \ || | |,---||    |   |
-`    `---'`   ``` ' '`---^`    `---'
 ====================================
-JANKENPON (Pedra, papel, tesoura)
+JANKENPON (Rock, Paper, Scissors)
 ====================================
 
 Ricardo Reis 2019
 03/03/2019 - 16/03/2019 [DD/MM/YYYY]
-Versão Python 3.7.0
-Versão 1.0 JANKENPON
+Python Version 3.7.0
+Version 1.0 JANKENPON
 '''
 
 from random import randint
 user_wins = 0
 pc_wins = 0
-empate = 0
-debug_mode = 0 # permite usar comandos para debug, 1 - ativado
-debug_cmd = ['please debug, alan', 'cycle'] # comandos durante o debug
+draw = 0
+debug_mode = 0 # lets the user type debug commands, 1 - ON
+debug_cmd = ['please debug, alan', 'cycles'] # Commands during debug mode
 while True:
-    ppt = ['pedra', 'papel', 'tesoura']
-    escolha = input('Pedra, papel ou tesoura?\n>').lower()
+    rps = ['rock', 'paper', 'scissors']
+    choice = input('Rock, paper or scissors?\n>').lower()
 
-    # verifica se o modo debug está ativado e se o utilizador está a usar comandos de debug
-    if debug_mode == 1 and escolha not in debug_cmd:
-        pc = input('PC -- Pedra, papel ou tesoura?\n>').lower()
+    # Checks if debug mode is ON and if the user is using corresponding commands
+    if debug_mode == 1 and choice not in debug_cmd and choice in rps:
+        pc = input('PC -- rock, paper or scissors?\n>').lower()
     else:
-        pc = ppt[randint(0, 2)]
+        pc = rps[randint(0, 2)]
     
-    if escolha in ppt:
+    if choice in rps and pc in rps:
         
         print("\n--------------------------------------")
-        print("RESULTADO\n--------------------------------------")
-        print(f"Ao computador calhou {pc}")
+        print("OUTCOME\n--------------------------------------")
+        print(f"The computer chose {pc}")
         print("--------------------------------------")
-        print(f"O utlizador escolheu {escolha}")
+        print(f"The user chose {choice}")
         print("--------------------------------------")
 
-        # EMPATOU ~
-        if escolha == pc:
-            print(f"[{escolha}] = {pc} | ~~UTLIZADOR EMPATOU~~")
-            empate += 1
+        # DRAW ~
+        if choice == pc:
+            print(f"[{choice}] = {pc} | ~~DRAW~~")
+            draw += 1
 
-        # PEDRA > TESOURA
-        elif escolha == ppt[0] and pc == ppt[2]:
-            print(f"[{escolha}] > {pc} | «UTLIZADOR GANHOU»")
+        # rock > scissors
+        elif choice == rps[0] and pc == rps[2]:
+            print(f"[{choice}] > {pc} | «USER WON»")
             user_wins += 1
             
-        elif escolha == ppt[2] and pc == ppt[0] :
-            print(f"{pc} > [{escolha}] | ※UTLIZADOR PERDEU※")
+        elif choice == rps[2] and pc == rps[0] :
+            print(f"{pc} > [{choice}] | ※USER LOST※")
             pc_wins += 1
 
-        # PAPEL > PEDRA
-        elif escolha == ppt[1] and pc == ppt[0]:
-            print(f"[{escolha}] > {pc} | «UTLIZADOR GANHOU»")
+        # paper > rock
+        elif choice == rps[1] and pc == rps[0]:
+            print(f"[{choice}] > {pc} | «USER WON»")
             user_wins += 1
             
-        elif escolha == ppt[0] and pc == ppt[1] :
-            print(f"{pc} > [{escolha}] | ※UTLIZADOR PERDEU※")
+        elif choice == rps[0] and pc == rps[1] :
+            print(f"{pc} > [{choice}] | ※USER LOST※")
             pc_wins += 1
 
-        # TESOURA > PAPEL
-        elif escolha == ppt[2] and pc == ppt[1]:
-            print(f"[{escolha}] > {pc} | «UTLIZADOR GANHOU»")
+        # scissors > paper
+        elif choice == rps[2] and pc == rps[1]:
+            print(f"[{choice}] > {pc} | «USER WON»")
             user_wins += 1
             
-        elif escolha == ppt[1] and pc == ppt[2] :
-            print(f"{pc} > [{escolha}] | ※UTLIZADOR PERDEU※")
+        elif choice == rps[1] and pc == rps[2] :
+            print(f"{pc} > [{choice}] | ※USER LOST※")
             pc_wins += 1
         
         print("--------------------------------------")
 
-        wins_x = round(user_wins/(user_wins+pc_wins+empate)*100)
-        pc_wins_x = round(pc_wins/(user_wins+pc_wins+empate)*100)
-        empate_x = round(empate/(user_wins+pc_wins+empate)*100)
+        wins_x = round(user_wins/(user_wins+pc_wins+draw)*100)
+        pc_wins_x = round(pc_wins/(user_wins+pc_wins+draw)*100)
+        draw_x = round(draw/(user_wins+pc_wins+draw)*100)
         
-        print(f"Vitórias:{user_wins} ({wins_x}%) | Derrotas: {pc_wins} ({pc_wins_x}%) | Empates: {empate} ({empate_x}%)")
+        print(f"Wins:{user_wins} ({wins_x}%) | Losses: {pc_wins} ({pc_wins_x}%) | Draws: {draw} ({draw_x}%)")
 
-    elif escolha == debug_cmd[0]:
+    # Checks if debug mode is being activated
+    elif choice == debug_cmd[0]:
         if debug_mode == 0:
             debug_mode = 1
             print("Alright.")
         else:
             debug_mode = 0
             print("Ok.")
-    elif escolha == debug_cmd[1] and debug_mode == 1:
+
+    # DEBUG MODE ONLY Checks if user typed "cycles"
+    # Checks how many times the computer "chose" what
+    
+    elif choice == debug_cmd[1] and debug_mode == 1:
         pc_cycles = int(input("How many cycles?\n").lower())
         pc_zero = 0
         pc_one = 0
         pc_two = 0
         for x in range(pc_cycles):
-            pc = ppt[randint(0, 2)]
-            if pc == ppt[0]:
+            pc = rps[randint(0, 2)]
+            if pc == rps[0]:
                 pc_zero += 1
-            elif pc == ppt[1]:
+            elif pc == rps[1]:
                 pc_one += 1
-            elif pc == ppt[2]:
+            elif pc == rps[2]:
                 pc_two += 1
         pc_all = pc_zero + pc_one + pc_two
-        print(f"Pedra: {pc_zero} {round((pc_zero/(pc_all))*100)}%\nPapel: {pc_one} {round((pc_one/(pc_all))*100)}%\nTesoura: {pc_two} {round((pc_two/(pc_all))*100)}%")
-        
-    elif escolha not in ppt:
-        print("--------------------------------------\nERRO: Escolha uma das 3 opções abaixo:\n--------------------------------------\n")
+        print(f"rock: {pc_zero} {round((pc_zero/(pc_all))*100)}%\npaper: {pc_one} {round((pc_one/(pc_all))*100)}%\nscissors: {pc_two} {round((pc_two/(pc_all))*100)}%")
+    
+    elif choice =='quit':
+        break
+
+    # If both the user and/or computer
+    elif choice not in rps or pc not in rps:
+        print("--------------------------------------\nERROR: Choose one the 3 options below:\n--------------------------------------\n")
