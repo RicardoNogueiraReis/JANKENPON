@@ -3,7 +3,7 @@
 > Ricardo Reis
 > 
 > 3 March 2019
-> 
+>  
 > Python 3.7.0
 
 Simple rock, paper, scissors game using python's random module to output the opponent's choice. 
