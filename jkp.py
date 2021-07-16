@@ -35,7 +35,7 @@ while choice != "quit":
 
         # Check error
         elif choice != "quit" and choice not in rps and choice != debug_cmd[0] and choice != "quit":
-            print("Error: Choose one of the three choices displayed!")
+            print("Error: Choose one of the three choices displayed! ")
 
     if choice == "quit":
         continue
