@@ -2,9 +2,9 @@
 
 > Ricardo Nogueira Reis
 > 
-> 16 July 2021
+> 6 February 2022
 >  
-> Python 3.7.0 (also tested on 3.8.2)
+> Python 3.7.0 (also tested on 3.10.1)
 
 Simple rock, paper, scissors game using python's random module to output the opponent's choice. 
 
