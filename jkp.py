@@ -3,9 +3,9 @@
 # ================================= #
 
 # Ricardo Nogueira Reis
-# 03/03/2019 - 16/03/2019 [DD/MM/YYYY]
-# Python Version 3.7.0 (also tested on 3.8.2)
-# Version 1.1.0 - 16/07/2021
+# 03/03/2019 - 06/02/2022 [DD/MM/YYYY]
+# Python Version 3.7.0 (also tested on 3.10.1)
+# Version 1.1.1 - 06/02/2022
 
 
 from random import randint
@@ -74,7 +74,7 @@ def JanKenPon():
                     print("Error: Number of cycles must be a NUMBER above 0!")
         else:
             while cpu_choice not in rps:
-                cpu_choice = input('CPU -- Rock, paper or scissors?\n>').lower().strip()
+                cpu_choice = input('CPU -- Rock, paper or scissors?\n>').strip().lower()
 
                 if cpu_choice not in rps:
                     print("Error: Choose one of the three choices displayed!")
